@@ -1,2 +1,24 @@
 #!/bin/bash
-
+#Header
+echo '#!/bin/bash' > 100-empty_casks
+echo 'find . -empty | rev | cut -d/ -f 1 | rev' >> 100-empty_casks
+cat 100-empty_casks
+#
+#Header
+echo '#!/bin/bash' > 101-gifs
+echo 'find . -name "*.gif" -type f | rev | cut -d "/" -f 1 | cut -d "." -f 2,3 | rev | sort -f -V' >> 101-gifs
+cat 101-gifs
+#
+#Header
+echo '#!/bin/bash' > 102-acrostic
+echo 'echo $(cut -c 1 | tr -d "\n")' >> 102-acrostic 
+#
+#Header
+echo '#!/bin/bash' > 103-the_biggest_fan
+echo 'tail -n +2 | cut -f 1 | sort -n | uniq -c | sort -nr | rev | cut -d " " -f 1 | rev | head -n 11' >> 103-the_biggest_fan
+cat 103-the_biggest_fan
+#
+git add .
+git commit -m 'automate advanced tasks 100 to 103'
+git push
+git status
